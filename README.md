@@ -50,7 +50,9 @@ data_path_save/1591586134/checkpoints/model/
 
 ## how c++ use?
 > C++ 调用.pb model 项目，依赖libtensorflow_cc.so动态库与tensorflow include head file.
-> [C++ TF-NER](https://github.com/phylieac/TF-NER.git)
+> [xcode C++ project: TF-NER](https://github.com/phylieac/TF-NER.git)
+
+
 
 # Ⅱ. Belown is Original Author's  Readme.txt
 
