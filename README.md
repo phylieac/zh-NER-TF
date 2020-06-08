@@ -21,6 +21,11 @@ with tf.variable_scope("crf_decode"):
 tf.identity(self.best_score, name="output_labels")
 ```
 
+# 4. CRF Transition_params
+```python
+self.transition_params = tf.Variable(initial_value=self.transition_params,name='transition_params',trainable=False)
+```
+
 # 4. Save .pb Format Model
 ```python
 tf.saved_model.simple_save(sess,self.model_path,inputs={"word_ids":self.word_ids,"dropout":self.dropout_pl,"sequence_lengths":self.sequence_lengths},outputs={"best_score":self.best_score})
@@ -44,7 +49,8 @@ cluener下载链接：[数据下载](https://storage.googleapis.com/cluebenchmar
 data_path_save/1591586134/checkpoints/model/
 
 ## how c++ use?
-
+> C++ 调用.pb model 项目，依赖libtensorflow_cc.so动态库与tensorflow include head file.
+> [C++ TF-NER](https://github.com/phylieac/TF-NER.git)
 
 # Ⅱ. Belown is Original Author's  Readme.txt
 

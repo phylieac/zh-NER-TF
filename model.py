@@ -96,6 +96,8 @@ class BiLSTM_CRF(object):
             log_likelihood, self.transition_params = crf_log_likelihood(inputs=self.logits,
                                                                    tag_indices=self.labels,
                                                                    sequence_lengths=self.sequence_lengths)
+            self.transition_params = tf.Variable(initial_value=self.transition_params,name='transition_params',trainable=False)
+            print(self.transition_params)
             self.loss = -tf.reduce_mean(log_likelihood)
 
         else:
@@ -224,6 +226,7 @@ class BiLSTM_CRF(object):
 
             # if step + 1 == num_batches:
             #     saver.save(sess, self.model_path, global_step=step_num)
+        # print(sess.run(self.transition_params))
 
         self.logger.info('===========validation / test===========')
         label_list_dev, seq_len_list_dev = self.dev_one_epoch(sess, dev)
