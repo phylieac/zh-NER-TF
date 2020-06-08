@@ -19,7 +19,7 @@ parser = argparse.ArgumentParser(description='BiLSTM-CRF for Chinese NER task')
 parser.add_argument('--train_data', type=str, default='data_path', help='train data source')
 parser.add_argument('--test_data', type=str, default='data_path', help='test data source')
 parser.add_argument('--batch_size', type=int, default=64, help='#sample of each minibatch')
-parser.add_argument('--epoch', type=int, default=40, help='#epoch of training')
+parser.add_argument('--epoch', type=int, default=5, help='#epoch of training')
 parser.add_argument('--hidden_dim', type=int, default=300, help='#dim of hidden state')
 parser.add_argument('--optimizer', type=str, default='Adam', help='Adam/Adadelta/Adagrad/RMSProp/Momentum/SGD')
 parser.add_argument('--CRF', type=str2bool, default=True, help='use CRF at the top layer. if False, use Softmax')
@@ -46,10 +46,10 @@ else:
 
 ## read corpus and get training data
 if args.mode != 'demo':
-    train_path = os.path.join('.', args.train_data, 'train_data')
-    test_path = os.path.join('.', args.test_data, 'test_data')
+    train_path = os.path.join('.', args.train_data, 'train.data')
+    dev_path = os.path.join('.', args.test_data, 'dev.data')
     train_data = read_corpus(train_path)
-    test_data = read_corpus(test_path); test_size = len(test_data)
+    dev_data = read_corpus(dev_path); test_size = len(dev_data)
 
 
 ## paths setting
@@ -85,7 +85,7 @@ if args.mode == 'train':
 
     ## train model on the whole training data
     print("train data: {}".format(len(train_data)))
-    model.train(train=train_data, dev=test_data)  # use test_data as the dev_data to see overfitting phenomena
+    model.train(train=train_data, dev=dev_data)  # use test_data as the dev_data to see overfitting phenomena
 
 ## testing model
 elif args.mode == 'test':

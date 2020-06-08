@@ -37,6 +37,7 @@ class BiLSTM_CRF(object):
         self.biLSTM_layer_op()
         self.softmax_pred_op()
         self.loss_op()
+        self.decode_op()
         self.trainstep_op()
         self.init_op()
 
@@ -46,7 +47,8 @@ class BiLSTM_CRF(object):
         self.sequence_lengths = tf.placeholder(tf.int32, shape=[None], name="sequence_lengths")
 
         self.dropout_pl = tf.placeholder(dtype=tf.float32, shape=[], name="dropout")
-        self.lr_pl = tf.placeholder(dtype=tf.float32, shape=[], name="lr")
+        # self.lr_pl = tf.placeholder(dtype=tf.float32, shape=[], name="lr")
+        self.lr_pl=tf.Variable(initial_value=self.lr,name='lr',trainable=False)
 
     def lookup_layer_op(self):
         with tf.variable_scope("words"):
@@ -110,6 +112,11 @@ class BiLSTM_CRF(object):
             self.labels_softmax_ = tf.argmax(self.logits, axis=-1)
             self.labels_softmax_ = tf.cast(self.labels_softmax_, tf.int32)
 
+    def decode_op(self):
+        with tf.variable_scope("crf_decode"):
+            self.best_score,_=tf.contrib.crf.crf_decode(self.logits,self.transition_params,self.sequence_lengths)
+            tf.identity(self.best_score, name="output_labels")
+
     def trainstep_op(self):
         with tf.variable_scope("train_step"):
             self.global_step = tf.Variable(0, name="global_step", trainable=False)
@@ -151,14 +158,15 @@ class BiLSTM_CRF(object):
         :param dev:
         :return:
         """
-        saver = tf.train.Saver(tf.global_variables())
+        # saver = tf.train.Saver(tf.global_variables())
 
         with tf.Session(config=self.config) as sess:
             sess.run(self.init_op)
             self.add_summary(sess)
 
             for epoch in range(self.epoch_num):
-                self.run_one_epoch(sess, train, dev, self.tag2label, epoch, saver)
+                self.run_one_epoch(sess, train, dev, self.tag2label, epoch)
+            tf.saved_model.simple_save(sess,self.model_path,inputs={"word_ids":self.word_ids,"dropout":self.dropout_pl,"sequence_lengths":self.sequence_lengths},outputs={"best_score":self.best_score})
 
     def test(self, test):
         saver = tf.train.Saver()
@@ -185,7 +193,7 @@ class BiLSTM_CRF(object):
         tag = [label2tag[label] for label in label_list[0]]
         return tag
 
-    def run_one_epoch(self, sess, train, dev, tag2label, epoch, saver):
+    def run_one_epoch(self, sess, train, dev, tag2label, epoch):
         """
 
         :param sess:
@@ -214,8 +222,8 @@ class BiLSTM_CRF(object):
 
             self.file_writer.add_summary(summary, step_num)
 
-            if step + 1 == num_batches:
-                saver.save(sess, self.model_path, global_step=step_num)
+            # if step + 1 == num_batches:
+            #     saver.save(sess, self.model_path, global_step=step_num)
 
         self.logger.info('===========validation / test===========')
         label_list_dev, seq_len_list_dev = self.dev_one_epoch(sess, dev)

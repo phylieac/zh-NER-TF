@@ -1,12 +1,17 @@
-import sys, pickle, os, random
+import sys
+import pickle
+import os
+import random
 import numpy as np
 
 ## tags, BIO
-tag2label = {"O": 0,
-             "B-PER": 1, "I-PER": 2,
-             "B-LOC": 3, "I-LOC": 4,
-             "B-ORG": 5, "I-ORG": 6
-             }
+# tag2label = {"O": 0,
+#              "B-PER": 1, "I-PER": 2,
+#              "B-LOC": 3, "I-LOC": 4,
+#              "B-ORG": 5, "I-ORG": 6
+#              }
+tag2label = {'O': 0, 'B-ADDRESS': 1, 'I-ADDRESS': 2, 'B-BOOK': 3, 'I-BOOK': 4, 'B-COMPANY': 5, 'I-COMPANY': 6, 'B-GAME': 7, 'I-GAME': 8, 'B-GOVERNMENT': 9, 'I-GOVERNMENT': 10,
+             'B-MOVIE': 11, 'I-MOVIE': 12, 'B-NAME': 13, 'I-NAME': 14, 'B-ORGANIZATION': 15, 'I-ORGANIZATION': 16, 'B-POSITION': 17, 'I-POSITION': 18, 'B-SCENE': 19, 'I-SCENE': 20}
 
 
 def read_corpus(corpus_path):
@@ -43,9 +48,10 @@ def vocab_build(vocab_path, corpus_path, min_count):
     word2id = {}
     for sent_, tag_ in data:
         for word in sent_:
+            # print(word)
             if word.isdigit():
                 word = '<NUM>'
-            elif ('\u0041' <= word <='\u005a') or ('\u0061' <= word <='\u007a'):
+            elif ('\u0041' <= word <= '\u005a') or ('\u0061' <= word <= '\u007a'):
                 word = '<ENG>'
             if word not in word2id:
                 word2id[word] = [len(word2id)+1, 1]
@@ -121,7 +127,7 @@ def pad_sequences(sequences, pad_mark=0):
     :param pad_mark:
     :return:
     """
-    max_len = max(map(lambda x : len(x), sequences))
+    max_len = max(map(lambda x: len(x), sequences))
     seq_list, seq_len_list = [], []
     for seq in sequences:
         seq = list(seq)
@@ -159,3 +165,6 @@ def batch_yield(data, batch_size, vocab, tag2label, shuffle=False):
     if len(seqs) != 0:
         yield seqs, labels
 
+
+if __name__ == "__main__":
+    vocab_build('data_path/word2id.pkl', 'data_path/train.data', 1)
