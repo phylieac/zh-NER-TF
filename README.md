@@ -28,20 +28,20 @@ with tf.variable_scope("crf_decode"):
 tf.identity(self.best_score, name="output_labels")
 ```
 
-# 4. CRF Transition_params
+## 4. CRF Transition_params
 ```python
 self.transition_params = tf.Variable(initial_value=self.transition_params,name='transition_params',trainable=False)
 ```
 
-# 4. Save .pb Format Model
+## 5. Save .pb Format Model
 ```python
 tf.saved_model.simple_save(sess,self.model_path,inputs={"word_ids":self.word_ids,"dropout":self.dropout_pl,"sequence_lengths":self.sequence_lengths},outputs={"best_score":self.best_score})
 ```
 
-# 5. Graph
+## 6. Graph
 ![graph](./pics/graph.png)
 
-# 6. CRF-Decode
+## 7. CRF-Decode
 ![crf](./pics/crf.png)
 
 
