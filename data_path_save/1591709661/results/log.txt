@@ -1,0 +1,205 @@
+2020-06-09 21:34:21,783:INFO: Namespace(CRF=True, batch_size=64, clip=5.0, demo_model='1521112368', dropout=0.5, embedding_dim=300, epoch=5, hidden_dim=300, lr=0.001, mode='train', optimizer='Adam', pretrain_embedding='other', shuffle=True, test_data='data_path', train_data='data_path', update_embedding=True)
+2020-06-09 21:34:21,789:WARNING: From /Users/panhongyan/Library/Python/3.7/lib/python/site-packages/tensorflow/python/framework/op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+2020-06-09 21:34:21,789:WARNING: From /Users/panhongyan/Library/Python/3.7/lib/python/site-packages/tensorflow/python/framework/op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+2020-06-09 21:34:21,830:WARNING: From /Users/panhongyan/git/zh-NER-TF/model.py:62: calling dropout (from tensorflow.python.ops.nn_ops) with keep_prob is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `rate` instead of `keep_prob`. Rate should be set to `rate = 1 - keep_prob`.
+2020-06-09 21:34:21,830:WARNING: From /Users/panhongyan/git/zh-NER-TF/model.py:62: calling dropout (from tensorflow.python.ops.nn_ops) with keep_prob is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `rate` instead of `keep_prob`. Rate should be set to `rate = 1 - keep_prob`.
+2020-06-09 21:34:21,844:WARNING: From /Users/panhongyan/git/zh-NER-TF/model.py:66: LSTMCell.__init__ (from tensorflow.python.ops.rnn_cell_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+This class is equivalent as tf.keras.layers.LSTMCell, and will be replaced by that in Tensorflow 2.0.
+2020-06-09 21:34:21,844:WARNING: From /Users/panhongyan/git/zh-NER-TF/model.py:66: LSTMCell.__init__ (from tensorflow.python.ops.rnn_cell_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+This class is equivalent as tf.keras.layers.LSTMCell, and will be replaced by that in Tensorflow 2.0.
+2020-06-09 21:34:21,845:WARNING: From /Users/panhongyan/git/zh-NER-TF/model.py:73: bidirectional_dynamic_rnn (from tensorflow.python.ops.rnn) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `keras.layers.Bidirectional(keras.layers.RNN(cell))`, which is equivalent to this API
+2020-06-09 21:34:21,845:WARNING: From /Users/panhongyan/git/zh-NER-TF/model.py:73: bidirectional_dynamic_rnn (from tensorflow.python.ops.rnn) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `keras.layers.Bidirectional(keras.layers.RNN(cell))`, which is equivalent to this API
+2020-06-09 21:34:21,851:WARNING: From /Users/panhongyan/Library/Python/3.7/lib/python/site-packages/tensorflow/python/ops/rnn.py:443: dynamic_rnn (from tensorflow.python.ops.rnn) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `keras.layers.RNN(cell)`, which is equivalent to this API
+2020-06-09 21:34:21,851:WARNING: From /Users/panhongyan/Library/Python/3.7/lib/python/site-packages/tensorflow/python/ops/rnn.py:443: dynamic_rnn (from tensorflow.python.ops.rnn) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `keras.layers.RNN(cell)`, which is equivalent to this API
+2020-06-09 21:34:21,865:WARNING: From /Users/panhongyan/Library/Python/3.7/lib/python/site-packages/tensorflow/python/ops/rnn.py:626: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+2020-06-09 21:34:21,865:WARNING: From /Users/panhongyan/Library/Python/3.7/lib/python/site-packages/tensorflow/python/ops/rnn.py:626: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+2020-06-09 21:34:26,880:INFO: 2020-06-09 21:34:24 epoch 1, step 1, loss: 103.3, global_step: 1
+2020-06-09 21:34:26,880:INFO: 2020-06-09 21:34:24 epoch 1, step 1, loss: 103.3, global_step: 1
+2020-06-09 21:36:56,175:INFO: 2020-06-09 21:34:24 epoch 1, step 168, loss: 19.49, global_step: 168
+2020-06-09 21:36:56,175:INFO: 2020-06-09 21:34:24 epoch 1, step 168, loss: 19.49, global_step: 168
+2020-06-09 21:36:56,176:INFO: ===========validation / test===========
+2020-06-09 21:36:56,176:INFO: ===========validation / test===========
+2020-06-09 21:37:04,716:INFO: processed 51603 tokens with 3072 phrases; found: 3889 phrases; correct: 466.
+2020-06-09 21:37:04,716:INFO: processed 51603 tokens with 3072 phrases; found: 3889 phrases; correct: 466.
+2020-06-09 21:37:04,716:INFO: accuracy:  81.16%; precision:  11.98%; recall:  15.17%; FB1:  13.39
+2020-06-09 21:37:04,716:INFO: accuracy:  81.16%; precision:  11.98%; recall:  15.17%; FB1:  13.39
+2020-06-09 21:37:04,716:INFO: ADDRESS: precision:  15.55%; recall:   9.92%; FB1:  12.11  238
+2020-06-09 21:37:04,716:INFO: ADDRESS: precision:  15.55%; recall:   9.92%; FB1:  12.11  238
+2020-06-09 21:37:04,716:INFO: BOOK: precision:   2.09%; recall:   5.84%; FB1:   3.08  431
+2020-06-09 21:37:04,716:INFO: BOOK: precision:   2.09%; recall:   5.84%; FB1:   3.08  431
+2020-06-09 21:37:04,717:INFO: COMPANY: precision:  13.37%; recall:  12.17%; FB1:  12.74  344
+2020-06-09 21:37:04,717:INFO: COMPANY: precision:  13.37%; recall:  12.17%; FB1:  12.74  344
+2020-06-09 21:37:04,717:INFO: GAME: precision:   9.31%; recall:  28.81%; FB1:  14.07  913
+2020-06-09 21:37:04,717:INFO: GAME: precision:   9.31%; recall:  28.81%; FB1:  14.07  913
+2020-06-09 21:37:04,717:INFO: GOVERNMENT: precision:   6.59%; recall:   8.91%; FB1:   7.57  334
+2020-06-09 21:37:04,717:INFO: GOVERNMENT: precision:   6.59%; recall:   8.91%; FB1:   7.57  334
+2020-06-09 21:37:04,717:INFO: MOVIE: precision:   1.59%; recall:   2.65%; FB1:   1.99  252
+2020-06-09 21:37:04,717:INFO: MOVIE: precision:   1.59%; recall:   2.65%; FB1:   1.99  252
+2020-06-09 21:37:04,717:INFO: NAME: precision:  15.91%; recall:  16.56%; FB1:  16.23  484
+2020-06-09 21:37:04,717:INFO: NAME: precision:  15.91%; recall:  16.56%; FB1:  16.23  484
+2020-06-09 21:37:04,717:INFO: ORGANIZATION: precision:  14.23%; recall:  19.35%; FB1:  16.40  499
+2020-06-09 21:37:04,717:INFO: ORGANIZATION: precision:  14.23%; recall:  19.35%; FB1:  16.40  499
+2020-06-09 21:37:04,718:INFO: POSITION: precision:  32.70%; recall:  24.02%; FB1:  27.70  318
+2020-06-09 21:37:04,718:INFO: POSITION: precision:  32.70%; recall:  24.02%; FB1:  27.70  318
+2020-06-09 21:37:04,718:INFO: SCENE: precision:  14.47%; recall:   5.26%; FB1:   7.72  76
+2020-06-09 21:37:04,718:INFO: SCENE: precision:  14.47%; recall:   5.26%; FB1:   7.72  76
+2020-06-09 21:37:05,642:INFO: 2020-06-09 21:37:04 epoch 2, step 1, loss: 21.66, global_step: 169
+2020-06-09 21:37:05,642:INFO: 2020-06-09 21:37:04 epoch 2, step 1, loss: 21.66, global_step: 169
+2020-06-09 21:39:34,024:INFO: 2020-06-09 21:37:04 epoch 2, step 168, loss: 14.03, global_step: 336
+2020-06-09 21:39:34,024:INFO: 2020-06-09 21:37:04 epoch 2, step 168, loss: 14.03, global_step: 336
+2020-06-09 21:39:34,025:INFO: ===========validation / test===========
+2020-06-09 21:39:34,025:INFO: ===========validation / test===========
+2020-06-09 21:39:42,542:INFO: processed 51603 tokens with 3072 phrases; found: 4534 phrases; correct: 1158.
+2020-06-09 21:39:42,542:INFO: processed 51603 tokens with 3072 phrases; found: 4534 phrases; correct: 1158.
+2020-06-09 21:39:42,542:INFO: accuracy:  85.46%; precision:  25.54%; recall:  37.70%; FB1:  30.45
+2020-06-09 21:39:42,542:INFO: accuracy:  85.46%; precision:  25.54%; recall:  37.70%; FB1:  30.45
+2020-06-09 21:39:42,542:INFO: ADDRESS: precision:  20.50%; recall:  30.83%; FB1:  24.63  561
+2020-06-09 21:39:42,542:INFO: ADDRESS: precision:  20.50%; recall:  30.83%; FB1:  24.63  561
+2020-06-09 21:39:42,542:INFO: BOOK: precision:  16.18%; recall:  39.61%; FB1:  22.98  377
+2020-06-09 21:39:42,542:INFO: BOOK: precision:  16.18%; recall:  39.61%; FB1:  22.98  377
+2020-06-09 21:39:42,542:INFO: COMPANY: precision:  27.71%; recall:  39.95%; FB1:  32.72  545
+2020-06-09 21:39:42,542:INFO: COMPANY: precision:  27.71%; recall:  39.95%; FB1:  32.72  545
+2020-06-09 21:39:42,542:INFO: GAME: precision:  29.65%; recall:  42.71%; FB1:  35.00  425
+2020-06-09 21:39:42,542:INFO: GAME: precision:  29.65%; recall:  42.71%; FB1:  35.00  425
+2020-06-09 21:39:42,543:INFO: GOVERNMENT: precision:  20.65%; recall:  38.46%; FB1:  26.87  460
+2020-06-09 21:39:42,543:INFO: GOVERNMENT: precision:  20.65%; recall:  38.46%; FB1:  26.87  460
+2020-06-09 21:39:42,543:INFO: MOVIE: precision:   9.96%; recall:  18.54%; FB1:  12.96  281
+2020-06-09 21:39:42,543:INFO: MOVIE: precision:   9.96%; recall:  18.54%; FB1:  12.96  281
+2020-06-09 21:39:42,543:INFO: NAME: precision:  32.40%; recall:  42.37%; FB1:  36.72  608
+2020-06-09 21:39:42,543:INFO: NAME: precision:  32.40%; recall:  42.37%; FB1:  36.72  608
+2020-06-09 21:39:42,543:INFO: ORGANIZATION: precision:  24.61%; recall:  34.06%; FB1:  28.57  508
+2020-06-09 21:39:42,543:INFO: ORGANIZATION: precision:  24.61%; recall:  34.06%; FB1:  28.57  508
+2020-06-09 21:39:42,543:INFO: POSITION: precision:  42.51%; recall:  43.88%; FB1:  43.18  447
+2020-06-09 21:39:42,543:INFO: POSITION: precision:  42.51%; recall:  43.88%; FB1:  43.18  447
+2020-06-09 21:39:42,543:INFO: SCENE: precision:  21.74%; recall:  33.49%; FB1:  26.37  322
+2020-06-09 21:39:42,543:INFO: SCENE: precision:  21.74%; recall:  33.49%; FB1:  26.37  322
+2020-06-09 21:39:43,470:INFO: 2020-06-09 21:39:42 epoch 3, step 1, loss: 14.93, global_step: 337
+2020-06-09 21:39:43,470:INFO: 2020-06-09 21:39:42 epoch 3, step 1, loss: 14.93, global_step: 337
+2020-06-09 21:42:12,988:INFO: 2020-06-09 21:39:42 epoch 3, step 168, loss: 13.2, global_step: 504
+2020-06-09 21:42:12,988:INFO: 2020-06-09 21:39:42 epoch 3, step 168, loss: 13.2, global_step: 504
+2020-06-09 21:42:12,989:INFO: ===========validation / test===========
+2020-06-09 21:42:12,989:INFO: ===========validation / test===========
+2020-06-09 21:42:21,466:INFO: processed 51603 tokens with 3072 phrases; found: 4047 phrases; correct: 1375.
+2020-06-09 21:42:21,466:INFO: processed 51603 tokens with 3072 phrases; found: 4047 phrases; correct: 1375.
+2020-06-09 21:42:21,467:INFO: accuracy:  87.79%; precision:  33.98%; recall:  44.76%; FB1:  38.63
+2020-06-09 21:42:21,467:INFO: accuracy:  87.79%; precision:  33.98%; recall:  44.76%; FB1:  38.63
+2020-06-09 21:42:21,467:INFO: ADDRESS: precision:  29.67%; recall:  31.10%; FB1:  30.37  391
+2020-06-09 21:42:21,467:INFO: ADDRESS: precision:  29.67%; recall:  31.10%; FB1:  30.37  391
+2020-06-09 21:42:21,467:INFO: BOOK: precision:  23.19%; recall:  41.56%; FB1:  29.77  276
+2020-06-09 21:42:21,467:INFO: BOOK: precision:  23.19%; recall:  41.56%; FB1:  29.77  276
+2020-06-09 21:42:21,467:INFO: COMPANY: precision:  28.45%; recall:  43.12%; FB1:  34.28  573
+2020-06-09 21:42:21,467:INFO: COMPANY: precision:  28.45%; recall:  43.12%; FB1:  34.28  573
+2020-06-09 21:42:21,467:INFO: GAME: precision:  36.75%; recall:  58.31%; FB1:  45.09  468
+2020-06-09 21:42:21,467:INFO: GAME: precision:  36.75%; recall:  58.31%; FB1:  45.09  468
+2020-06-09 21:42:21,468:INFO: GOVERNMENT: precision:  21.99%; recall:  37.65%; FB1:  27.76  423
+2020-06-09 21:42:21,468:INFO: GOVERNMENT: precision:  21.99%; recall:  37.65%; FB1:  27.76  423
+2020-06-09 21:42:21,468:INFO: MOVIE: precision:  31.42%; recall:  47.02%; FB1:  37.67  226
+2020-06-09 21:42:21,468:INFO: MOVIE: precision:  31.42%; recall:  47.02%; FB1:  37.67  226
+2020-06-09 21:42:21,468:INFO: NAME: precision:  40.58%; recall:  53.76%; FB1:  46.25  616
+2020-06-09 21:42:21,468:INFO: NAME: precision:  40.58%; recall:  53.76%; FB1:  46.25  616
+2020-06-09 21:42:21,468:INFO: ORGANIZATION: precision:  35.63%; recall:  42.23%; FB1:  38.65  435
+2020-06-09 21:42:21,468:INFO: ORGANIZATION: precision:  35.63%; recall:  42.23%; FB1:  38.65  435
+2020-06-09 21:42:21,468:INFO: POSITION: precision:  52.84%; recall:  51.50%; FB1:  52.16  422
+2020-06-09 21:42:21,468:INFO: POSITION: precision:  52.84%; recall:  51.50%; FB1:  52.16  422
+2020-06-09 21:42:21,468:INFO: SCENE: precision:  31.34%; recall:  32.54%; FB1:  31.92  217
+2020-06-09 21:42:21,468:INFO: SCENE: precision:  31.34%; recall:  32.54%; FB1:  31.92  217
+2020-06-09 21:42:22,401:INFO: 2020-06-09 21:42:21 epoch 4, step 1, loss: 12.77, global_step: 505
+2020-06-09 21:42:22,401:INFO: 2020-06-09 21:42:21 epoch 4, step 1, loss: 12.77, global_step: 505
+2020-06-09 21:44:53,271:INFO: 2020-06-09 21:42:21 epoch 4, step 168, loss: 11.39, global_step: 672
+2020-06-09 21:44:53,271:INFO: 2020-06-09 21:42:21 epoch 4, step 168, loss: 11.39, global_step: 672
+2020-06-09 21:44:53,272:INFO: ===========validation / test===========
+2020-06-09 21:44:53,272:INFO: ===========validation / test===========
+2020-06-09 21:45:01,690:INFO: processed 51603 tokens with 3072 phrases; found: 4151 phrases; correct: 1551.
+2020-06-09 21:45:01,690:INFO: processed 51603 tokens with 3072 phrases; found: 4151 phrases; correct: 1551.
+2020-06-09 21:45:01,690:INFO: accuracy:  88.78%; precision:  37.36%; recall:  50.49%; FB1:  42.95
+2020-06-09 21:45:01,690:INFO: accuracy:  88.78%; precision:  37.36%; recall:  50.49%; FB1:  42.95
+2020-06-09 21:45:01,691:INFO: ADDRESS: precision:  31.89%; recall:  31.64%; FB1:  31.76  370
+2020-06-09 21:45:01,691:INFO: ADDRESS: precision:  31.89%; recall:  31.64%; FB1:  31.76  370
+2020-06-09 21:45:01,691:INFO: BOOK: precision:  34.48%; recall:  38.96%; FB1:  36.59  174
+2020-06-09 21:45:01,691:INFO: BOOK: precision:  34.48%; recall:  38.96%; FB1:  36.59  174
+2020-06-09 21:45:01,691:INFO: COMPANY: precision:  30.52%; recall:  49.74%; FB1:  37.83  616
+2020-06-09 21:45:01,691:INFO: COMPANY: precision:  30.52%; recall:  49.74%; FB1:  37.83  616
+2020-06-09 21:45:01,691:INFO: GAME: precision:  41.89%; recall:  63.05%; FB1:  50.34  444
+2020-06-09 21:45:01,691:INFO: GAME: precision:  41.89%; recall:  63.05%; FB1:  50.34  444
+2020-06-09 21:45:01,691:INFO: GOVERNMENT: precision:  25.20%; recall:  50.20%; FB1:  33.56  492
+2020-06-09 21:45:01,691:INFO: GOVERNMENT: precision:  25.20%; recall:  50.20%; FB1:  33.56  492
+2020-06-09 21:45:01,691:INFO: MOVIE: precision:  37.55%; recall:  62.91%; FB1:  47.03  253
+2020-06-09 21:45:01,691:INFO: MOVIE: precision:  37.55%; recall:  62.91%; FB1:  47.03  253
+2020-06-09 21:45:01,692:INFO: NAME: precision:  48.53%; recall:  56.99%; FB1:  52.42  546
+2020-06-09 21:45:01,692:INFO: NAME: precision:  48.53%; recall:  56.99%; FB1:  52.42  546
+2020-06-09 21:45:01,692:INFO: ORGANIZATION: precision:  33.63%; recall:  51.23%; FB1:  40.60  559
+2020-06-09 21:45:01,692:INFO: ORGANIZATION: precision:  33.63%; recall:  51.23%; FB1:  40.60  559
+2020-06-09 21:45:01,692:INFO: POSITION: precision:  53.64%; recall:  56.12%; FB1:  54.85  453
+2020-06-09 21:45:01,692:INFO: POSITION: precision:  53.64%; recall:  56.12%; FB1:  54.85  453
+2020-06-09 21:45:01,692:INFO: SCENE: precision:  34.43%; recall:  40.19%; FB1:  37.09  244
+2020-06-09 21:45:01,692:INFO: SCENE: precision:  34.43%; recall:  40.19%; FB1:  37.09  244
+2020-06-09 21:45:02,636:INFO: 2020-06-09 21:45:01 epoch 5, step 1, loss: 10.71, global_step: 673
+2020-06-09 21:45:02,636:INFO: 2020-06-09 21:45:01 epoch 5, step 1, loss: 10.71, global_step: 673
+2020-06-09 21:47:31,735:INFO: 2020-06-09 21:45:01 epoch 5, step 168, loss: 12.07, global_step: 840
+2020-06-09 21:47:31,735:INFO: 2020-06-09 21:45:01 epoch 5, step 168, loss: 12.07, global_step: 840
+2020-06-09 21:47:31,735:INFO: ===========validation / test===========
+2020-06-09 21:47:31,735:INFO: ===========validation / test===========
+2020-06-09 21:47:40,209:INFO: processed 51603 tokens with 3072 phrases; found: 4398 phrases; correct: 1672.
+2020-06-09 21:47:40,209:INFO: processed 51603 tokens with 3072 phrases; found: 4398 phrases; correct: 1672.
+2020-06-09 21:47:40,209:INFO: accuracy:  88.93%; precision:  38.02%; recall:  54.43%; FB1:  44.77
+2020-06-09 21:47:40,209:INFO: accuracy:  88.93%; precision:  38.02%; recall:  54.43%; FB1:  44.77
+2020-06-09 21:47:40,209:INFO: ADDRESS: precision:  33.17%; recall:  36.19%; FB1:  34.62  407
+2020-06-09 21:47:40,209:INFO: ADDRESS: precision:  33.17%; recall:  36.19%; FB1:  34.62  407
+2020-06-09 21:47:40,209:INFO: BOOK: precision:  24.75%; recall:  32.47%; FB1:  28.09  202
+2020-06-09 21:47:40,209:INFO: BOOK: precision:  24.75%; recall:  32.47%; FB1:  28.09  202
+2020-06-09 21:47:40,209:INFO: COMPANY: precision:  29.35%; recall:  51.32%; FB1:  37.34  661
+2020-06-09 21:47:40,209:INFO: COMPANY: precision:  29.35%; recall:  51.32%; FB1:  37.34  661
+2020-06-09 21:47:40,210:INFO: GAME: precision:  43.88%; recall:  64.41%; FB1:  52.20  433
+2020-06-09 21:47:40,210:INFO: GAME: precision:  43.88%; recall:  64.41%; FB1:  52.20  433
+2020-06-09 21:47:40,210:INFO: GOVERNMENT: precision:  28.86%; recall:  51.42%; FB1:  36.97  440
+2020-06-09 21:47:40,210:INFO: GOVERNMENT: precision:  28.86%; recall:  51.42%; FB1:  36.97  440
+2020-06-09 21:47:40,210:INFO: MOVIE: precision:  37.55%; recall:  64.90%; FB1:  47.57  261
+2020-06-09 21:47:40,210:INFO: MOVIE: precision:  37.55%; recall:  64.90%; FB1:  47.57  261
+2020-06-09 21:47:40,210:INFO: NAME: precision:  48.06%; recall:  69.25%; FB1:  56.74  670
+2020-06-09 21:47:40,210:INFO: NAME: precision:  48.06%; recall:  69.25%; FB1:  56.74  670
+2020-06-09 21:47:40,211:INFO: ORGANIZATION: precision:  39.70%; recall:  50.41%; FB1:  44.42  466
+2020-06-09 21:47:40,211:INFO: ORGANIZATION: precision:  39.70%; recall:  50.41%; FB1:  44.42  466
+2020-06-09 21:47:40,211:INFO: POSITION: precision:  50.09%; recall:  63.05%; FB1:  55.83  545
+2020-06-09 21:47:40,211:INFO: POSITION: precision:  50.09%; recall:  63.05%; FB1:  55.83  545
+2020-06-09 21:47:40,211:INFO: SCENE: precision:  31.31%; recall:  46.89%; FB1:  37.55  313
+2020-06-09 21:47:40,211:INFO: SCENE: precision:  31.31%; recall:  46.89%; FB1:  37.55  313
+2020-06-09 21:47:40,219:WARNING: From /Users/panhongyan/git/zh-NER-TF/model.py:171: simple_save (from tensorflow.python.saved_model.simple_save) is deprecated and will be removed in a future version.
+Instructions for updating:
+This function will only be available through the v1 compatibility library as tf.compat.v1.saved_model.simple_save.
+2020-06-09 21:47:40,219:WARNING: From /Users/panhongyan/git/zh-NER-TF/model.py:171: simple_save (from tensorflow.python.saved_model.simple_save) is deprecated and will be removed in a future version.
+Instructions for updating:
+This function will only be available through the v1 compatibility library as tf.compat.v1.saved_model.simple_save.
+2020-06-09 21:47:40,219:WARNING: From /Users/panhongyan/Library/Python/3.7/lib/python/site-packages/tensorflow/python/saved_model/signature_def_utils_impl.py:205: build_tensor_info (from tensorflow.python.saved_model.utils_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+This function will only be available through the v1 compatibility library as tf.compat.v1.saved_model.utils.build_tensor_info or tf.compat.v1.saved_model.build_tensor_info.
+2020-06-09 21:47:40,219:WARNING: From /Users/panhongyan/Library/Python/3.7/lib/python/site-packages/tensorflow/python/saved_model/signature_def_utils_impl.py:205: build_tensor_info (from tensorflow.python.saved_model.utils_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+This function will only be available through the v1 compatibility library as tf.compat.v1.saved_model.utils.build_tensor_info or tf.compat.v1.saved_model.build_tensor_info.
+2020-06-09 21:47:40,231:INFO: Assets added to graph.
+2020-06-09 21:47:40,231:INFO: Assets added to graph.
+2020-06-09 21:47:40,232:INFO: No assets to write.
+2020-06-09 21:47:40,232:INFO: No assets to write.
+2020-06-09 21:47:41,197:INFO: SavedModel written to: ./data_path_save/1591709661/checkpoints/model/saved_model.pb
+2020-06-09 21:47:41,197:INFO: SavedModel written to: ./data_path_save/1591709661/checkpoints/model/saved_model.pb

@@ -19,7 +19,7 @@ parser = argparse.ArgumentParser(description='BiLSTM-CRF for Chinese NER task')
 parser.add_argument('--train_data', type=str, default='data_path', help='train data source')
 parser.add_argument('--test_data', type=str, default='data_path', help='test data source')
 parser.add_argument('--batch_size', type=int, default=64, help='#sample of each minibatch')
-parser.add_argument('--epoch', type=int, default=5, help='#epoch of training')
+parser.add_argument('--epoch', type=int, default=16, help='#epoch of training')
 parser.add_argument('--hidden_dim', type=int, default=300, help='#dim of hidden state')
 parser.add_argument('--optimizer', type=str, default='Adam', help='Adam/Adadelta/Adagrad/RMSProp/Momentum/SGD')
 parser.add_argument('--CRF', type=str2bool, default=True, help='use CRF at the top layer. if False, use Softmax')
@@ -40,7 +40,7 @@ word2id = read_dictionary(os.path.join('.', args.train_data, 'word2id.pkl'))
 if args.pretrain_embedding == 'random':
     embeddings = random_embedding(word2id, args.embedding_dim)
 else:
-    embedding_path = 'pretrain_embedding.npy'
+    embedding_path = './data_path/pretraining.embedding'
     embeddings = np.array(np.load(embedding_path), dtype='float32')
 
 
@@ -50,7 +50,6 @@ if args.mode != 'demo':
     dev_path = os.path.join('.', args.test_data, 'dev.data')
     train_data = read_corpus(train_path)
     dev_data = read_corpus(dev_path); test_size = len(dev_data)
-
 
 ## paths setting
 paths = {}
