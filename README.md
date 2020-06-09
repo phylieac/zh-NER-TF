@@ -1,9 +1,11 @@
-**适应跨语言调用的模型生成，需要针对性的增加输入输出的标志，需要注意定义Graph输出时，不同于平时直接的crf解码方法，这里需要加上CRF解码层。**
+**适应跨语言(c++/java)调用的模型生成，需要针对性的增加输入输出的标志，需要注意定义Graph输出时，不同于平时直接的crf解码方法，这里需要加上CRF解码层。**
 ## 本示例实现了细粒度实体识别
+> 1.细粒度情感分析
+> 2.固定输出输出
+> 3.增加CRF-Decode
+
 ## Ⅰ. Chanages
-1.细粒度情感分析
-2.固定输出输出
-3.增加CRF-Decode
+
 ## 1. PlaceHolder Inputs
 ```python
 self.word_ids = tf.placeholder(tf.int32, shape=[None, None], name="word_ids")
