@@ -1,0 +1,12 @@
+processed 51603 tokens with 3072 phrases; found: 3999 phrases; correct: 1591.
+accuracy:  88.78%; precision:  39.78%; recall:  51.79%; FB1:  45.00
+          ADDRESS: precision:  29.04%; recall:  39.95%; FB1:  33.63  513
+             BOOK: precision:  39.76%; recall:  42.86%; FB1:  41.25  166
+          COMPANY: precision:  35.77%; recall:  53.17%; FB1:  42.77  562
+             GAME: precision:  41.39%; recall:  64.41%; FB1:  50.40  459
+       GOVERNMENT: precision:  41.16%; recall:  48.99%; FB1:  44.73  294
+            MOVIE: precision:  28.47%; recall:  54.30%; FB1:  37.36  288
+             NAME: precision:  41.30%; recall:  57.20%; FB1:  47.97  644
+     ORGANIZATION: precision:  38.78%; recall:  51.77%; FB1:  44.34  490
+         POSITION: precision:  61.60%; recall:  57.04%; FB1:  59.23  401
+            SCENE: precision:  43.41%; recall:  37.80%; FB1:  40.41  182

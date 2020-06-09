@@ -1,5 +1,10 @@
-# Ⅰ. Chanages
-# 1. PlaceHolder Inputs
+**适应跨语言调用的模型生成，需要针对性的增加输入输出的标志，需要注意定义Graph输出时，不同于平时直接的crf解码方法，这里需要加上CRF解码层。**
+## 本示例实现了细粒度实体识别
+## Ⅰ. Chanages
+1.细粒度情感分析
+2.固定输出输出
+3.增加CRF-Decode
+## 1. PlaceHolder Inputs
 ```python
 self.word_ids = tf.placeholder(tf.int32, shape=[None, None], name="word_ids")
 self.labels = tf.placeholder(tf.int32, shape=[None, None], name="labels")
@@ -10,13 +15,13 @@ self.dropout_pl = tf.placeholder(dtype=tf.float32, shape=[], name="dropout")
 self.lr_pl=tf.Variable(initial_value=self.lr,name='lr',trainable=False)
 ```
 
-# 2. Add CRF Decode Layer
+## 2. Add CRF Decode Layer
 ```python
 with tf.variable_scope("crf_decode"):
     self.best_score,_=tf.contrib.crf.crf_decode(self.logits,self.transition_params,self.sequence_lengths)
 ```
 
-# 3. Identify Outputs
+## 3. Identify Outputs
 ```python
 tf.identity(self.best_score, name="output_labels")
 ```
@@ -31,9 +36,16 @@ self.transition_params = tf.Variable(initial_value=self.transition_params,name='
 tf.saved_model.simple_save(sess,self.model_path,inputs={"word_ids":self.word_ids,"dropout":self.dropout_pl,"sequence_lengths":self.sequence_lengths},outputs={"best_score":self.best_score})
 ```
 
-# New NER model 
+# 5. Graph
+![graph](./pics/graph.png)
 
-## which data?
+# 6. CRF-Decode
+![crf](./pics/crf.png)
+
+
+## New NER model 
+
+### which data?
 下载地址：https://github.com/CLUEbenchmark/CLUE
 
 本数据是在清华大学开源的文本分类数据集THUCTC基础上，选出部分数据进行细粒度命名实体标注，原数据来源于Sina News RSS.
@@ -45,16 +57,16 @@ tf.saved_model.simple_save(sess,self.model_path,inputs={"word_ids":self.word_ids
 
 cluener下载链接：[数据下载](https://storage.googleapis.com/cluebenchmark/tasks/cluener_public.zip)
 
-## .pb model
+### .pb model
 data_path_save/1591586134/checkpoints/model/
 
-## how c++ use?
+### how c++ use?
 > C++ 调用.pb model 项目，依赖libtensorflow_cc.so动态库与tensorflow include head file.
 > [xcode C++ project: TF-NER](https://github.com/phylieac/TF-NER.git)
 
 
 
-# Ⅱ. Belown is Original Author's  Readme.txt
+## Ⅱ. Belown is Original Author's  Readme.txt
 
 > # A simple BiLSTM-CRF model for Chinese Named Entity Recognition
 
